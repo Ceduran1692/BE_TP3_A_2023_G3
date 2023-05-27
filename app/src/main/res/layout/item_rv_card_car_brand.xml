@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="100dp"
+    android:layout_height="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="20dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="5dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_card_brand"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/lg_mercedez" />
+
+        <TextView
+            android:id="@+id/tv_card_brand_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mulish"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:layout_margin="5dp"
+            tools:text="@string/test">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_card_brand_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/fira_sans_medium"
+            android:textAlignment="center"
+            android:textColor="@color/blue_notification"
+            android:textSize="8sp"
+            tools:text="@string/test_count">
+
+        </TextView>
+
+
+        
+        
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

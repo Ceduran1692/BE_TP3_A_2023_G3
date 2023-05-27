@@ -1,10 +1,17 @@
 <resources>
+    <!--DATOS GENERALES DE LA APP -->
     <string name="app_name">TP App</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--DATOS PARA CONEXION CON API -->
     <string name="api_key">SjiPJ1xFBT87VPLTyuynlzUGfGsCGoHbw9b0To2z</string>
     <string name="base_url">https://api.api-ninjas.com</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txt_setting_generales">Generales</string>
     <string name="switch_modo_oscuro">Modo Oscuro</string>
     <string name="txt_notification">Notificaciones</string>
+
+    <!--DATOS PARA CARGA DE TEXTO PARA PRUEBAS DE FRONT-->
+    <string name="test">Test</string>
+    <string name="test_count">+ 99</string>
 </resources>
