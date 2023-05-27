@@ -17,6 +17,10 @@ class CarViewModel @Inject constructor(
 ):ViewModel(){
 
     val carList= MutableLiveData<List<Car>>()
+    val favoriteCarList= MutableLiveData<MutableList<Car>>()
+    val isLoading= MutableLiveData<Boolean>()
+
+
 
     fun getAllCars(){
         Log.i("CarViewModel", "getAllCars() - init")
@@ -24,7 +28,7 @@ class CarViewModel @Inject constructor(
             val result= getAllCarsUseCase()
             if(result.isNotEmpty())carList.postValue(result)
         }
-        Log.i("CarViewModel", "getAllCars() - end")
+        Log.i("CarViewModel", "getAllCars() - out")
 
     }
 
