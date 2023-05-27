@@ -7,21 +7,85 @@
     android:layout_height="match_parent"
     tools:context=".ui.views.fragments.SettingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Setting"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="106dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtSettingGenerales"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="start|center"
+            android:text="@string/txt_setting_generales"
+            android:textColor="@color/blue_generales"
+            android:textStyle="bold"
+            android:layout_marginStart="26dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+            <View
+                android:layout_width="52dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="292dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/track"/>
+            <View
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="300dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="44dp"
+                android:foreground="@drawable/handle"/>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="261dp"
+                android:layout_height="24dp"
+                android:text="@string/switch_modo_oscuro"
+                android:textColor="@color/dark_blue"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+            <View
+                android:layout_width="52dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="292dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/track"/>
+            <View
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="300dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="44dp"
+                android:foreground="@drawable/handle"/>
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="261dp"
+                android:layout_height="24dp"
+                android:text="@string/txt_notification"
+                android:textColor="@color/dark_blue"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
