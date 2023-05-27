@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         Log.i("MainActivity","entro onCreate()")
 
+
         carViewModel.carList.observe(this, Observer {
             Log.i("MainActivity","carViewModel.carList.size: "+ it.size)
         })
@@ -29,4 +30,5 @@ class MainActivity : AppCompatActivity() {
 
         Log.i("Main Activity","salgo onCreate()")
     }
+
 }
