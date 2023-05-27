@@ -1,6 +1,6 @@
 package ar.edu.ort.tpapp.domain.models
 
-import ar.edu.ort.tpapp.data.database.entities.CarsEntity
+import ar.edu.ort.tpapp.data.database.entities.CarEntity
 import ar.edu.ort.tpapp.data.network.dto.CarDto
 
 data class Car(
@@ -20,4 +20,4 @@ data class Car(
 )
 
 fun CarDto.toDomain()= Car( city_mpg, `class`, combination_mpg, cylinders, displacement, drive, fuel_type, highway_mpg, make, model, transmission, year, favorite)
-fun CarsEntity.toDomain()= Car( city_mpg, `class`, combination_mpg, cylinders, displacement, drive, fuel_type, highway_mpg, make, model, transmission, year, favorite)
+fun CarEntity.toDomain()= Car( city_mpg, `class`=_class, combination_mpg, cylinders, displacement, drive, fuel_type, highway_mpg, make, model, transmission, year, favorite)
