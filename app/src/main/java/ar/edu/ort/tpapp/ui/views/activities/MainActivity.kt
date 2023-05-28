@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         Log.i("MainActivity","entro onCreate()")
 
+
         carViewModel.carList.observe(this, Observer {
             Log.i("MainActivity","carViewModel.carList.size: "+ it.size)
         })
@@ -38,4 +39,5 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
     }
+
 }
