@@ -18,7 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/txt_img_desc_fondologin"/>
 
     <View
         android:layout_width="match_parent"
@@ -47,9 +48,9 @@
                 android:layout_marginTop="115dp"
                 android:background="#3330e5 "
                 android:fontFamily="sans-serif-black"
-                android:text="Premier"
+                android:text="@string/premier"
                 android:textColor="@color/white"
-                android:textSize="38dp"
+                android:textSize="38sp"
                 app:lineHeight="45.6dp" />
 
             <TextView
@@ -59,9 +60,9 @@
                 android:layout_marginTop="115dp"
                 android:background="#ffcc00"
                 android:fontFamily="sans-serif-black"
-                android:text="RentCar"
+                android:text="@string/rent_car"
                 android:textColor="#001D42"
-                android:textSize="38dp"
+                android:textSize="38sp"
                 app:lineHeight="45.6dp" />
         </LinearLayout>
 
@@ -76,7 +77,7 @@
             android:inputType="textPersonName"
             android:text="Name"
             android:textAlignment="center"
-            android:textSize="14dp" />
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
@@ -89,7 +90,7 @@
             android:inputType="textPassword"
             android:text="passwordLarga"
             android:textAlignment="center"
-            android:textSize="14dp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/textView5"
@@ -97,7 +98,7 @@
             android:layout_height="21dp"
             android:layout_gravity="center"
             android:layout_marginTop="9dp"
-            android:text="Olvide la contrasenia"
+            android:text="@string/olvide_contrasenia"
             android:textAlignment="center"
             android:textColor="@color/white" />
 
@@ -109,7 +110,7 @@
             android:layout_marginTop="67dp"
             android:backgroundTint="#212121"
             android:fontFamily="sans-serif-black"
-            android:text="INGRESAR"
+            android:text="@string/ingresar"
             app:cornerRadius="74dp" />
 
     </LinearLayout>

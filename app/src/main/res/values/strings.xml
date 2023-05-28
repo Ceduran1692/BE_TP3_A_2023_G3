@@ -20,4 +20,11 @@
     <!--DATOS PARA CARGA DE TEXTO PARA PRUEBAS DE FRONT-->
     <string name="test">Test</string>
     <string name="test_count">+ 99</string>
+
+    <string name="olvide_contrasenia">Olvide la contraseña</string>
+    <string name="ingresar">INGRESAR</string>
+    <string name="premier">Premier</string>
+    <string name="rent_car">RentCar</string>
+
+    <string name="txt_img_desc_fondologin">fondoLogin</string>
 </resources>

@@ -36,4 +36,14 @@ class CarViewModel @Inject constructor(
         //TODO
 
     }
+
+    fun getCarsList():MutableList<Car>{
+        var response: MutableList<Car>
+        if(carList.value == null){
+            response = mutableListOf()
+        }else{
+            response = carList.value!!.toMutableList()
+        }
+        return response
+    }
 }
