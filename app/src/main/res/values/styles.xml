@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HomeCardsText" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/fira_sans</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:lineHeight">30sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+    <style name="FiltroText" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/fira_sans</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:lineHeight">11sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:letterSpacing">-0.05</item>
+    </style>
+</resources>

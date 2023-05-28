@@ -4,4 +4,9 @@
     <string name="base_url">https://api.api-ninjas.com</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="filtro_name">Filtro</string>
+    <string name="deportivos_name">Deportivos</string>
+    <string name="suv_name">SUV</string>
+    <string name="electricos_name">ELECTRICOS</string>
 </resources>

@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import ar.edu.ort.tpapp.R
 import ar.edu.ort.tpapp.databinding.ActivityMainBinding
 import ar.edu.ort.tpapp.ui.viewmodels.CarViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,6 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityMainBinding
     private val carViewModel: CarViewModel by viewModels()
+
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,5 +33,9 @@ class MainActivity : AppCompatActivity() {
         carViewModel.getAllCars()
 
         Log.i("Main Activity","salgo onCreate()")
+
+        //NAV CONTROLLER
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        navController = navHostFragment.navController
     }
 }

@@ -31,9 +31,9 @@ class LoginFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
 
         val btnLogin = view.findViewById<Button>(R.id.btnLogin)
-        /*btnLogin.setOnClickListener{
-            findNavController().navigate(action_loginFragment_to_homeScreenFragment)
-        }*/
+        btnLogin.setOnClickListener{
+            findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
+        }
     }
 
     override fun onDestroyView() {
