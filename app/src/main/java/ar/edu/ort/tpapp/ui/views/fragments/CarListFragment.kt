@@ -6,34 +6,62 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tpapp.R
+import ar.edu.ort.tpapp.databinding.FragmentCarListBinding
+import ar.edu.ort.tpapp.databinding.FragmentHomeScreenBinding
 import ar.edu.ort.tpapp.domain.models.Car
+import ar.edu.ort.tpapp.domain.models.CarBrand
 import ar.edu.ort.tpapp.ui.viewmodels.CarViewModel
+import ar.edu.ort.tpapp.ui.views.adapters.CarBrandRecyclerAdapter
 import ar.edu.ort.tpapp.ui.views.adapters.CarRecyclerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
-class CarListFragment : Fragment() {
-    private val carViewModel: CarViewModel by viewModels()
+class CarListFragment : Fragment(R.layout.fragment_car_list) {
+    private var _binding: FragmentCarListBinding?=null
+    private val binding get()= _binding!!
 
-    private lateinit var carRecycleView: RecyclerView
-    private lateinit var carAdapter: CarRecyclerAdapter
-    private var carList: MutableList<Car> = carViewModel.getCarsList()
+    private lateinit var carListTest:MutableList<Car>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_car_list, container, false)
-        carRecycleView = view.findViewById(R.id.carRecycle)
-        carAdapter = CarRecyclerAdapter(carList)
-        carRecycleView.adapter = carAdapter
-        carViewModel.getCarsList()?.let { carAdapter.setData(it) }
+        _binding= FragmentCarListBinding.inflate(inflater,container,false)
+        val view = binding.root
+        initRecyclerView()
+
         return view
     }
 
-    fun getCarList(): MutableList<Car>{
-        return carViewModel.getCarsList()
+
+
+    private fun initRecyclerView(){
+        val linearLayoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+        initTestFun()
+        binding.carRecycle.adapter= CarRecyclerAdapter(carListTest)
+        binding.carRecycle.layoutManager=linearLayoutManager
+    }
+
+    private fun initTestFun(){
+        carListTest= mutableListOf()
+
+        for(i in 1..5){
+            carListTest.add(Car(  18,
+                "midsize car",
+            21,
+             4,
+             2.2,
+             "fwd",
+             "gas",
+             26,
+            "toyota",
+            "camry",
+            "a",
+             1993))
+        }
+
+
     }
 }

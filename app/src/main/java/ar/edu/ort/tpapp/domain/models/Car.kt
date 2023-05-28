@@ -16,7 +16,7 @@ data class Car(
     var model: String,
     var transmission: String,
     var year: Int,
-    var favorite: Boolean
+    var favorite: Boolean= false
 )
 
 fun CarDto.toDomain()= Car( city_mpg, `class`, combination_mpg, cylinders, displacement, drive, fuel_type, highway_mpg, make, model, transmission, year, favorite)
