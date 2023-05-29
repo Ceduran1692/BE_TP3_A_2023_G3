@@ -24,9 +24,8 @@
             android:layout_height="56dp"
             android:gravity="start|center"
             android:text="@string/txt_setting_generales"
-            android:textColor="@color/blue_generales"
-            android:textStyle="bold"
-            android:layout_marginStart="26dp"/>
+            android:layout_marginStart="26dp"
+            style="@style/NotificacionesYGenerales"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -50,7 +49,7 @@
                 android:layout_width="261dp"
                 android:layout_height="24dp"
                 android:text="@string/switch_modo_oscuro"
-                android:textColor="@color/dark_blue"
+                style="@style/LettersProfileSetting"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
@@ -79,7 +78,7 @@
                 android:layout_width="261dp"
                 android:layout_height="24dp"
                 android:text="@string/txt_notification"
-                android:textColor="@color/dark_blue"
+                style="@style/LettersProfileSetting"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"

@@ -11,10 +11,9 @@
         android:id="@+id/rectangle_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/rectangle_background"
+        android:background="@drawable/home_background"
          />
 
         <ImageView
@@ -27,16 +26,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/rectangle_2" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="32sp"
-            android:textColor="@color/dark_blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        style="@style/NameProfile"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -72,18 +70,17 @@
                     android:gravity="center" />
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="360dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/txt_notification"
-                android:textAlignment="center"
-                android:textColor="@color/blue_generales"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/NotificacionesYGenerales"
+            android:layout_width="360dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/txt_notification"
+            android:textAlignment="center" />
 
     </RelativeLayout>
     <RelativeLayout
@@ -112,7 +109,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="18dp"
         android:text="@string/txt_notification"
-        android:textColor="@color/dark_blue" />
+        style="@style/LettersProfileSetting"/>
     </RelativeLayout>
 
 
