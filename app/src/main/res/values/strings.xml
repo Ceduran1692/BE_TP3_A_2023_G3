@@ -11,7 +11,9 @@
     <string name="filtro_name">Filtro</string>
     <string name="deportivos_name">Deportivos</string>
     <string name="suv_name">SUV</string>
-    <string name="electricos_name">ELECTRICOS</string>
+    <string name="electricos_name">ELÉCTRICOS</string>
+    <string name="marcas_name">Marcas</string>
+    <string name="search_content">Buscador de vehículos</string>
 
     <string name="txt_setting_generales">Generales</string>
     <string name="switch_modo_oscuro">Modo Oscuro</string>

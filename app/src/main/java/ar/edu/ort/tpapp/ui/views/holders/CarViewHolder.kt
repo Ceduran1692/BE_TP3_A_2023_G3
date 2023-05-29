@@ -9,9 +9,15 @@ import ar.edu.ort.tpapp.domain.models.Car
 data class CarViewHolder(private val view: View):RecyclerView.ViewHolder(view){
     //TODO CREATE CARDVIEW
     val cardTitle: TextView = view.findViewById(R.id.card_title)
+    val cardTransmission: TextView = view.findViewById((R.id.card_transmission))
+    val cardFuel: TextView = view.findViewById((R.id.card_fuel))
+    val cardYear: TextView = view.findViewById(R.id.card_year)
 
-    fun render(item: Car){
+    fun render(car: Car){
     //TODO MAP CARDVIEW FROM CAR
-        cardTitle.text = item.model
+        cardTitle.text = car.model
+        cardTransmission.text = car.transmission
+        cardFuel.text = car.fuel_type
+        cardYear.text = car.year.toString()
     }
 }

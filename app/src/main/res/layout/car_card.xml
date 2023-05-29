@@ -1,29 +1,94 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="173dp"
+    android:layout_height="112dp"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:layout_margin="12dp"
     card_view:cardBackgroundColor="@color/white"
     card_view:cardCornerRadius="20dp"
-    card_view:cardElevation="6dp"
-    card_view:contentPadding="4dp"
-    android:layout_marginRight="30dp"
-    android:layout_marginLeft="30dp" >
+    card_view:cardElevation="20dp"
+    android:layout_marginRight="25dp"
+    android:layout_marginLeft="25dp" >
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:padding="8dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/card_title"
-            android:text="Estacion"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="35sp" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/card_title"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="70dp"
+                android:text="Auto"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/lg_mercedez"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/card_transmission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transmision"
+                android:textSize="12sp"
+                android:textColor="@android:color/black"
+                android:padding="4dp"/>
+
+            <TextView
+                android:id="@+id/card_fuel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanque"
+                android:textSize="12sp"
+                android:textColor="@android:color/black"
+                android:padding="4dp"/>
+
+            <TextView
+                android:id="@+id/card_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anio fabricacion"
+                android:textSize="12sp"
+                android:textColor="@android:color/black"
+                android:padding="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Propiedad 4"
+                android:textSize="12sp"
+                android:textColor="@android:color/black"
+                android:padding="4dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
+
 </com.google.android.material.card.MaterialCardView>

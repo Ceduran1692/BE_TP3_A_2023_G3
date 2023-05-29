@@ -24,5 +24,10 @@
         android:name="ar.edu.ort.tpapp.ui.views.fragments.CarListFragment"
         android:label="fragment_car_list"
         tools:layout="@layout/fragment_car_list" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="ar.edu.ort.tpapp.ui.views.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
 

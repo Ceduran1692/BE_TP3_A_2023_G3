@@ -18,11 +18,14 @@ import ar.edu.ort.tpapp.ui.views.adapters.CarBrandRecyclerAdapter
 import ar.edu.ort.tpapp.ui.views.adapters.CarRecyclerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CarListFragment : Fragment(R.layout.fragment_car_list) {
     private var _binding: FragmentCarListBinding?=null
     private val binding get()= _binding!!
+    private val viewModel: CarViewModel by viewModels()
 
     private lateinit var carListTest:MutableList<Car>
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,10 +41,15 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
 
 
     private fun initRecyclerView(){
-        val linearLayoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
-        initTestFun()
-        binding.carRecycle.adapter= CarRecyclerAdapter(carListTest)
-        binding.carRecycle.layoutManager=linearLayoutManager
+        val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.carRecycle.layoutManager = linearLayoutManager
+
+        viewModel.getAllCars()
+
+        viewModel.carList.observe(viewLifecycleOwner) { cars ->
+            val adapter = CarRecyclerAdapter(cars.toMutableList())
+            binding.carRecycle.adapter = adapter
+        }
     }
 
     private fun initTestFun(){
