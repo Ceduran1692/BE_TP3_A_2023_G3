@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import ar.edu.ort.tpapp.domain.models.Car
+import ar.edu.ort.tpapp.domain.usecases.GetAllCarsByBrandUseCase
 import ar.edu.ort.tpapp.domain.usecases.GetAllCarsUseCase
+import ar.edu.ort.tpapp.domain.usecases.SetBrandLogoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -13,7 +15,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CarViewModel @Inject constructor(
-    private val getAllCarsUseCase: GetAllCarsUseCase
+    private val setBrandLogoUseCase: SetBrandLogoUseCase,
+    private val getAllCarsUseCase: GetAllCarsUseCase,
+    private val getAllCarsByBrandUseCase: GetAllCarsByBrandUseCase
 ):ViewModel(){
 
     val carList= MutableLiveData<List<Car>>()
@@ -24,11 +28,31 @@ class CarViewModel @Inject constructor(
 
     fun getAllCars(){
         Log.i("CarViewModel", "getAllCars() - init")
+        isLoading.postValue(true)
         viewModelScope.launch {
-            val result= getAllCarsUseCase()
-            if(result.isNotEmpty())carList.postValue(result)
+            var result= getAllCarsUseCase()
+            result= setBrandLogoUseCase(result)
+
+            if(result.isNotEmpty()) {
+                Log.i("CarViewModel", "brandVerify-> result[0].lgBrand= +"+result[0].lgBrand)
+                carList.postValue(result)
+            }
         }
+        isLoading.postValue(false)
         Log.i("CarViewModel", "getAllCars() - out")
+
+    }
+
+    fun getAllCarsByBrand(brand:String){
+        Log.i("CarViewModel", "getAllCarsByBrand() - init")
+        isLoading.postValue(true)
+        viewModelScope.launch {
+            var result= getAllCarsByBrandUseCase(brand)
+            result= setBrandLogoUseCase(result)
+            if(result.isNotEmpty())carList.value= result
+        }
+        isLoading.postValue(false)
+        Log.i("CarViewModel", "getAllCarsByBrand() - out")
 
     }
 
