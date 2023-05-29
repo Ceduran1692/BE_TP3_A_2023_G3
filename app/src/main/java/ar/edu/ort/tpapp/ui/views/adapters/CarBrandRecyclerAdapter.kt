@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tpapp.R
 import ar.edu.ort.tpapp.domain.models.CarBrand
 import ar.edu.ort.tpapp.ui.views.holders.CarBrandViewHolder
+import ar.edu.ort.tpapp.ui.views.listeners.OnClickBrand
 
 class CarBrandRecyclerAdapter(
-    private val carBrandList:MutableList<CarBrand>
+    private val carBrandList:MutableList<CarBrand>,
+    private val onClickBrand:OnClickBrand
 ):RecyclerView.Adapter<CarBrandViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarBrandViewHolder {
         val view= LayoutInflater.from(parent.context).inflate(R.layout.item_rv_card_car_brand,parent,false)
@@ -22,7 +24,7 @@ class CarBrandRecyclerAdapter(
     override fun onBindViewHolder(holder: CarBrandViewHolder, position: Int) {
         var brand= carBrandList[position]
 
-        holder.render(brand)
+        holder.render(brand,onClickBrand)
     }
 
 }

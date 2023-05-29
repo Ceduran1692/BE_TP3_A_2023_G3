@@ -18,7 +18,11 @@
         android:id="@+id/homeScreenFragment"
         android:name="ar.edu.ort.tpapp.ui.views.fragments.HomeScreenFragment"
         android:label="fragment_home_screen"
-        tools:layout="@layout/fragment_home_screen" />
+        tools:layout="@layout/fragment_home_screen" >
+        <action
+            android:id="@+id/action_homeScreenFragment_to_carListFragment"
+            app:destination="@id/carListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/carListFragment"
         android:name="ar.edu.ort.tpapp.ui.views.fragments.CarListFragment"
