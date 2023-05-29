@@ -13,7 +13,6 @@ class CarRepository  @Inject constructor(
     private val carDao:CarDao
 ){
     suspend fun getAllCars():List<Car>{
-
         try {
             Log.i("CarRepository", "getAllCars() - init")
             val response: List<CarEntity> = carDao.getAllCars()
@@ -22,8 +21,17 @@ class CarRepository  @Inject constructor(
         }catch (e:Exception){
             throw Exception("Error: CarRepository-getAllCars(): "+e.message)
         }
+    }
 
-
+    suspend fun getAllCarsByBrand(brand:String):List<Car>{
+        try {
+            Log.i("CarRepository", "getAllCarsByBrand("+brand+") - init")
+            val response: List<CarEntity> = carDao.getAllCarsByBrand(brand)
+            Log.i("CarRepository", "getAllCarsByBrand() - out. result.size:" + response.size)
+            return response.map { it.toDomain() }
+        }catch (e:Exception){
+            throw Exception("Error: CarRepository-getAllCarsByBrand(): "+e.message)
+        }
     }
 
     suspend fun insertCars(cars:List<Car>){

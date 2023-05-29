@@ -16,4 +16,13 @@ class CarService @Inject constructor(private val serviceImpl:CarsServiceImpl) {
         Log.i("CarService","getAllCars() - end")
         return response.map { it.toDomain() }
     }
+
+    suspend fun getAllCarsByBrand(brand:String):List<Car>{
+        Log.i("CarService","getAllCarsByBrand("+brand+"):List<Car> - init")
+        val response= serviceImpl.getAllCarsByBrand(brand)
+
+        Log.i("CarService","result.size= "+ response.size)
+        Log.i("CarService","getAllCarsByBrand() - end")
+        return response.map { it.toDomain() }
+    }
 }

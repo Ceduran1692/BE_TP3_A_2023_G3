@@ -18,12 +18,11 @@ class GetAllCarsUseCase @Inject constructor(
             var result = carService.getAllCars()
             if(!result.isEmpty()){
                 carRepository.deleteNonFavoriteCars()
-                result= carService.getAllCars()
-                if(!result.isEmpty()){
-                    carRepository.insertCars(result)
-                    Log.i("GetAllCarsUseCase:List<Car>", "insert validation:"+ carRepository.getAllCars().size)
 
-                }
+                carRepository.insertCars(result)
+                Log.i("GetAllCarsUseCase:List<Car>", "insert validation:"+ carRepository.getAllCars().size)
+
+
             }else{
                 result= carRepository.getAllCars()
             }

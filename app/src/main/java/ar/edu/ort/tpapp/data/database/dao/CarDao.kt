@@ -12,6 +12,9 @@ interface CarDao {
     @Query("SELECT * FROM car_table ORDER BY id DESC")
     suspend fun getAllCars():List<CarEntity>
 
+    @Query("SELECT * FROM car_table WHERE make LIKE (:brand) ORDER BY id DESC")
+    suspend fun getAllCarsByBrand(brand:String):List<CarEntity>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(cars:List<CarEntity>)
 
