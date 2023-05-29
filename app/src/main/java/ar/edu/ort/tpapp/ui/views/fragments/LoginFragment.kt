@@ -17,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import ar.edu.ort.tpapp.R
 import ar.edu.ort.tpapp.databinding.FragmentHomeScreenBinding
 import ar.edu.ort.tpapp.databinding.FragmentLoginBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -41,6 +42,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
 
+        val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNavigationView.visibility = View.GONE
+
         val btnLogin = view.findViewById<Button>(R.id.btnLogin)
         btnLogin.setOnClickListener{
             findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
@@ -50,6 +54,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onDestroyView() {
         super.onDestroyView()
         (requireActivity() as AppCompatActivity).supportActionBar?.show()
+        requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            .visibility = View.VISIBLE
     }
 
     private fun initListeners(){

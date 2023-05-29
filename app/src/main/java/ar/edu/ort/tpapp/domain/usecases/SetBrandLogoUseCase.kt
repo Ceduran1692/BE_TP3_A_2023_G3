@@ -32,6 +32,7 @@ class SetBrandLogoUseCase @Inject constructor(){
             "volkswagen"-> car.lgBrand= R.drawable.lg_vw
             "renault"-> car.lgBrand= R.drawable.lg_renault
             "bmw"-> car.lgBrand= R.drawable.lg_bmw
+            "audi"-> car.lgBrand= R.drawable.lg_audi
             else -> car.lgBrand= R.drawable.lg_bmw
         }
     }
