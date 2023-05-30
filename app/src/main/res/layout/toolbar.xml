@@ -10,44 +10,46 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/white">
 
         <TextView
             android:id="@+id/titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="16dp"
             android:background="#3330e5 "
             android:fontFamily="sans-serif-black"
             android:text="@string/premier"
             android:textColor="@color/white"
-            android:textSize="28sp"
-            app:lineHeight="45.6dp"
-            android:layout_gravity="top|center"
-            android:layout_marginTop="16dp"/>
+            android:textSize="27sp"
+            app:lineHeight="27.6dp" />
 
         <TextView
             android:id="@+id/titulo2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="16dp"
             android:background="#ffcc00"
             android:fontFamily="sans-serif-black"
             android:text="@string/rent_car"
             android:textColor="#001D42"
-            android:textSize="28sp"
-            app:lineHeight="45.6dp"
-            android:layout_gravity="top|center"
-            android:layout_marginTop="16dp"/>
+            android:textSize="27sp"
+            app:lineHeight="27.6dp" />
 
 
         <ImageView
             android:id="@+id/toolbar_icon"
             android:layout_width="44dp"
             android:layout_height="44dp"
-            android:src="@drawable/car_toolbar_icon"
             android:layout_gravity="end|center_vertical"
-            android:elevation="4dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp" />
+            android:layout_marginEnd="16dp"
+            android:elevation="4dp"
+            android:src="@drawable/car_toolbar_icon" />
 
     </androidx.appcompat.widget.Toolbar>
 

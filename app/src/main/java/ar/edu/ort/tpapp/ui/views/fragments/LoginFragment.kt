@@ -1,5 +1,7 @@
 package ar.edu.ort.tpapp.ui.views.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
@@ -24,7 +26,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private var _binding: FragmentLoginBinding?=null
     private val binding get()= _binding!!
-
+    private lateinit var sharedPreferences:SharedPreferences
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,6 +42,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        sharedPreferences = requireContext().applicationContext.getSharedPreferences("loginPreferences", Context.MODE_PRIVATE)
+
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
 
         val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
@@ -49,6 +54,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         btnLogin.setOnClickListener{
             findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
         }
+
+        initListeners(view)
     }
 
     override fun onDestroyView() {
@@ -58,10 +65,17 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             .visibility = View.VISIBLE
     }
 
-    private fun initListeners(){
+    private fun initListeners(view: View){
         binding.btnLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
+            saveName(view.findViewById<TextView>(R.id.editTextTextPersonName).text.toString())
 
+            findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
         }
+    }
+
+    private fun saveName(nombre:String){
+        val editor = sharedPreferences.edit()
+        editor.putString("nombre", nombre)
+        editor.apply()
     }
 }
