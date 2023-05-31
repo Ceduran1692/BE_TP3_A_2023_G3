@@ -6,16 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tpapp.R
 import ar.edu.ort.tpapp.databinding.FragmentCarListBinding
 import ar.edu.ort.tpapp.domain.models.Car
-import ar.edu.ort.tpapp.domain.models.CarBrand
 import ar.edu.ort.tpapp.ui.viewmodels.CarViewModel
-import ar.edu.ort.tpapp.ui.views.adapters.CarBrandRecyclerAdapter
 import ar.edu.ort.tpapp.ui.views.adapters.CarRecyclerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,8 +23,9 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
     private val binding get()= _binding!!
     private val viewModel: CarViewModel by activityViewModels()
     private val args:CarListFragmentArgs by navArgs()
-    private var adapter:CarRecyclerAdapter= CarRecyclerAdapter(mutableListOf())
+    private lateinit var adapter:CarRecyclerAdapter
     private lateinit var carListTest:MutableList<Car>
+    private lateinit var overlayView: View
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,17 +35,38 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
         // Inflate the layout for this fragment
         _binding= FragmentCarListBinding.inflate(inflater,container,false)
         val view = binding.root
-        initObservers()
-        initVmCarList()
-        //initTestFun()
-        initRecyclerView()
 
+        overlayView = binding.overlayView
 
+        binding.carListSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                filterCarList(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterCarList(newText)
+                if (newText.isNullOrEmpty()) {
+                    overlayView.visibility = if (binding.carListSearch.hasFocus()) View.VISIBLE else View.GONE
+                } else {
+                    overlayView.visibility = View.VISIBLE
+                }
+                return true
+            }
+
+        })
 
         Log.i("CarListFragment","onCreateView() - out")
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initObservers()
+        initVmCarList()
+        initRecyclerView()
+
+    }
 
 
     private fun initRecyclerView(){
@@ -56,19 +76,21 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
 
         //viewModel.getAllCars()
         //adapter.setData(carListTest)
+        adapter = CarRecyclerAdapter(mutableListOf())
         binding.carRecycle.adapter = adapter
 
     }
 
-    private fun initObservers(){
-        viewModel.isLoading.observe(viewLifecycleOwner,{
-            loadingProgressBar(it)
+    private fun initObservers() {
+        viewModel.isLoading.observe(viewLifecycleOwner, { loading ->
+            loadingProgressBar(loading)
         })
 
         viewModel.carList.observe(viewLifecycleOwner) { cars ->
             adapter.setData(cars.toMutableList())
         }
     }
+
     private fun initVmCarList(){
         var brand= args.brand
         var favorite= args.favorite
@@ -81,15 +103,38 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
         }
     }
 
-    private fun loadingProgressBar(loading:Boolean){
-        if(loading){
-            binding.pbRvCarList.visibility= View.VISIBLE
-            binding.carRecycle.visibility= View.GONE
-        }else{
-            binding.pbRvCarList.visibility= View.GONE
-            binding.carRecycle.visibility= View.VISIBLE
+
+    private fun loadingProgressBar(loading: Boolean) {
+        if (loading) {
+            binding.pbRvCarList.visibility = View.VISIBLE
+            binding.carRecycle.visibility = View.GONE
+        } else {
+            binding.pbRvCarList.visibility = View.GONE
+            binding.carRecycle.visibility = View.VISIBLE
         }
     }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+    private fun filterCarList(query: String?) {
+        query?.let {
+            if (::adapter.isInitialized) {
+                val filteredList = if (query.isEmpty()) {
+                    viewModel.carList.value?.toMutableList() ?: mutableListOf()
+                } else {
+                    viewModel.carList.value?.filter { car ->
+                        car.model.contains(query, ignoreCase = true)
+                    }?.toMutableList() ?: mutableListOf()
+                }
+                adapter.setData(filteredList)
+            }
+        }
+    }
+
+
     private fun initTestFun(){
         carListTest= mutableListOf()
 

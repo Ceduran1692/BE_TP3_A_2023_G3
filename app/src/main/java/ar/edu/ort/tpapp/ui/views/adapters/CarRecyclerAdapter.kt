@@ -9,7 +9,7 @@ import ar.edu.ort.tpapp.domain.models.Car
 import ar.edu.ort.tpapp.ui.views.holders.CarViewHolder
 
 class CarRecyclerAdapter(
-    private var carList:MutableList<Car>
+    var carList:MutableList<Car>
 ):RecyclerView.Adapter<CarViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
