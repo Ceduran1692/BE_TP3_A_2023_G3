@@ -32,10 +32,11 @@ class CarViewModel @Inject constructor(
 
             if(result.isNotEmpty()) {
                 Log.i("CarViewModel", "brandVerify-> result[0].lgBrand= +"+result[0].lgBrand)
+                setDescriptions(result)
                 carList.postValue(result)
             }
+            isLoading.postValue(false)
         }
-        isLoading.postValue(false)
         Log.i("CarViewModel", "getAllCars() - out")
 
     }
@@ -45,11 +46,41 @@ class CarViewModel @Inject constructor(
         isLoading.postValue(true)
         viewModelScope.launch {
             var result= getAllCarsByBrandUseCase(brand)
-            if(result.isNotEmpty())carList.value= result
+            if(result.isNotEmpty()) {
+                setDescriptions(result)
+                carList.value = result
+            }
+            isLoading.postValue(false)
         }
-        isLoading.postValue(false)
+
         Log.i("CarViewModel", "getAllCarsByBrand() - out")
 
+    }
+
+    private fun setDescriptions(cars: List<Car>) {
+        cars.forEach { car ->
+            car.transmission = when (car.transmission) {
+                "a" -> "Automatic"
+                "m" -> "Manual"
+                else -> "No definida"
+            }
+            car.model = when (car.make) {
+                "mercedes-benz" -> "Mercedes-Benz " + car.model.replaceFirstChar { it.uppercaseChar() }
+                "maserati" -> "Maserati "+ car.model.replaceFirstChar { it.uppercaseChar() }
+                "toyota" -> "Toyota "+ car.model.replaceFirstChar { it.uppercaseChar() }
+                "porsche" -> "Porsche "+ car.model.replaceFirstChar { it.uppercaseChar() }
+                "volkswagen" -> "Volkswagen "+ car.model.replaceFirstChar { it.uppercaseChar() }
+                "renault" -> "Renault "+ car.model.replaceFirstChar { it.uppercaseChar() }
+                "bmw" -> "BMW "+ car.model.replaceFirstChar { it.uppercaseChar() }
+                "audi" -> "Audi "+ car.model.replaceFirstChar { it.uppercaseChar() }
+                "fiat" -> "Fiat "+ car.model.replaceFirstChar { it.uppercaseChar() }
+                else -> car.model.replaceFirstChar { it.uppercaseChar() }
+            }
+            car.fuel_type = when (car.fuel_type) {
+                "gas" -> "Gasoline"
+                else -> "Biodiesel"
+            }
+        }
     }
 
     fun getAllFavorites(){

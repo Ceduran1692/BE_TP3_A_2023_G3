@@ -23,9 +23,10 @@
             <TextView
                 android:id="@+id/card_title"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp"
                 android:layout_marginTop="6dp"
-                android:text="Auto"
+                android:gravity="center"
+                android:text="@string/bottom_cars"
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -33,6 +34,7 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:layout_weight="1"
                 android:src="@drawable/lg_mercedez"
                 android:id="@+id/carLogo"/>
         </LinearLayout>
@@ -131,6 +133,7 @@
                     android:src="@drawable/settings" />
 
                 <TextView
+                    android:id="@+id/card_cylynders"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Propiedad 4"

@@ -5,7 +5,7 @@
         <item name="android:textSize">25sp</item>
         <item name="android:lineHeight">30sp</item>
         <item name="android:textColor">#FFFFFF</item>
-        <item name="android:letterSpacing">0</item>
+        <item name="android:textStyle">bold</item>
     </style>
     <style name="FiltroText" parent="android:Widget.TextView">
         <item name="android:fontFamily">@font/fira_sans</item>
@@ -17,7 +17,7 @@
     <style name="SearchContentText" parent="android:Widget.TextView">
         <item name="android:fontFamily">@font/fira_sans</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">#A8A8A8</item>
+        <item name="android:textColorHint">#A8A8A8</item>
         <item name="android:text">@string/search_content</item>
     </style>
     <style name="MarcasText" parent="android:Widget.TextView">
@@ -29,12 +29,12 @@
         <item name="android:textColor">#0D0D0D</item>
     </style>
     <style name="AppSearchView" parent="Widget.AppCompat.SearchView">
-        <item name="android:textColorHint">@android:color/transparent</item>
+        <item name="android:textColorHint">#A8A8A8</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:background">@drawable/home_search_background</item>
         <item name="android:queryBackground">@null</item>
     </style>
-
     <style name="CarPropertiesCardText" parent="android:Widget.TextView">
         <item name="android:fontFamily">@font/fira_sans</item>
         <item name="android:textSize">12sp</item>

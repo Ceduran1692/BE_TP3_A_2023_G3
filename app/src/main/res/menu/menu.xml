@@ -4,12 +4,15 @@
     <group >
         <item
             android:id="@+id/menu_profile"
-            android:title="Perfil" />
+            android:title="Perfil"
+            android:icon="@drawable/profile_icon"/>
         <item
             android:id="@+id/menu_configuration"
-            android:title="Configuracion" />
+            android:title="Configuracion"
+            android:icon="@drawable/settings_icon"/>
         <item
             android:id="@+id/menu_favourite"
-            android:title="Favoritos" />
+            android:title="Favoritos"
+            android:icon="@drawable/favorites_icon"/>
     </group>
 </menu>

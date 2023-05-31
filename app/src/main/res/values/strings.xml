@@ -14,6 +14,15 @@
     <string name="electricos_name">ELÉCTRICOS</string>
     <string name="marcas_name">Marcas</string>
     <string name="search_content">Buscador de vehículos</string>
+    <string name="bottom_home">Home</string>
+    <string name="bottom_cars">Autos</string>
+    <string name="bottom_search">Buscar</string>
+    <string name="bottom_profile">Perfil</string>
+    <!--CARDS AUTOS -->
+    <string name="transmission_a">Automatic</string>
+    <string name="transmission_m">Manual</string>
+    <string name="fuel_gas">Gas</string>
+    <string name="model_corolla">Toyota Corolla</string>
 
     <string name="txt_setting_generales">Generales</string>
     <string name="switch_modo_oscuro">Modo Oscuro</string>

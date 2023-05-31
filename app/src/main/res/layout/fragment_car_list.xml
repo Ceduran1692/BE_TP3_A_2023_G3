@@ -4,25 +4,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-        <SearchView
-            android:id="@+id/car_list_search"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="13dp"
-            android:layout_marginRight="13dp"
-            android:queryHint="@string/search_content"
-            style="@style/AppSearchView"
-            android:iconifiedByDefault="false" />
-
-    <ProgressBar
-        android:id="@+id/pb_rv_car_list"
+    <SearchView
+        android:id="@+id/car_list_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        android:progress="25">
-    </ProgressBar>
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        android:queryHint="@string/search_content"
+        style="@style/AppSearchView"
+        android:iconifiedByDefault="false"
+        android:searchIcon="@drawable/searchview_icon_search"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/carRecycle"
@@ -31,6 +27,23 @@
             android:layout_marginTop="26dp"
             android:clipToPadding="false"
             android:paddingLeft="25dp"
-            android:paddingRight="25dp"/>
+            android:paddingRight="25dp" />
+
+        <ProgressBar
+            android:id="@+id/pb_rv_car_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:progress="25"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/overlay_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:visibility="gone" />
+
+    </FrameLayout>
 
 </LinearLayout>
