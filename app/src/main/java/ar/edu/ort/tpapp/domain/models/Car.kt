@@ -33,6 +33,7 @@ data class Car(
             "renault" -> car.lgBrand = R.drawable.lg_renault
             "bmw" -> car.lgBrand = R.drawable.lg_bmw
             "audi" -> car.lgBrand = R.drawable.lg_audi
+            "fiat" -> car.lgBrand=R.drawable.lg_fiat
             else -> car.lgBrand = R.drawable.lg_bmw
         }
     }
