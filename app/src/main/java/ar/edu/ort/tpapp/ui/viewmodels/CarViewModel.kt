@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import ar.edu.ort.tpapp.domain.models.Car
 import ar.edu.ort.tpapp.domain.usecases.GetAllCarsByBrandUseCase
 import ar.edu.ort.tpapp.domain.usecases.GetAllCarsUseCase
-import ar.edu.ort.tpapp.domain.usecases.SetBrandLogoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,7 +14,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CarViewModel @Inject constructor(
-    private val setBrandLogoUseCase: SetBrandLogoUseCase,
     private val getAllCarsUseCase: GetAllCarsUseCase,
     private val getAllCarsByBrandUseCase: GetAllCarsByBrandUseCase
 ):ViewModel(){
