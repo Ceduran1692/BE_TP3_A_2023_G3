@@ -19,6 +19,7 @@ import androidx.navigation.fragment.findNavController
 import ar.edu.ort.tpapp.R
 import ar.edu.ort.tpapp.databinding.FragmentHomeScreenBinding
 import ar.edu.ort.tpapp.databinding.FragmentLoginBinding
+import ar.edu.ort.tpapp.ui.views.activities.MainActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -68,7 +69,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun initListeners(view: View){
         binding.btnLogin.setOnClickListener {
             saveName(view.findViewById<TextView>(R.id.editTextTextPersonName).text.toString())
-
+            (requireActivity() as MainActivity).updateHeaderName()
             findNavController().navigate(R.id.action_loginFragment_to_homeScreenFragment)
         }
     }

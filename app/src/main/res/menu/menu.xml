@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <group >
+        <item
+            android:id="@+id/menu_profile"
+            android:title="Perfil" />
+        <item
+            android:id="@+id/menu_configuration"
+            android:title="Configuracion" />
+        <item
+            android:id="@+id/menu_favourite"
+            android:title="Favoritos" />
+    </group>
 </menu>

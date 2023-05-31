@@ -18,7 +18,9 @@
     <string name="txt_setting_generales">Generales</string>
     <string name="switch_modo_oscuro">Modo Oscuro</string>
     <string name="txt_notification">Notificaciones</string>
-
+    <!--    Drawer-->
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
     <!--DATOS PARA CARGA DE TEXTO PARA PRUEBAS DE FRONT-->
     <string name="test">Test</string>
     <string name="test_count">+ 99</string>
