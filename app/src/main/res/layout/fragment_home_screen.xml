@@ -1,14 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.views.fragments.HomeScreenFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@drawable/home_background"
+        tools:context=".ui.views.fragments.HomeScreenFragment">
 
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/home_cards"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/bottomNavigationView"
+            tools:ignore="NotSibling">
+
+            <SearchView
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:queryHint="@string/search_content"
+                style="@style/AppSearchView"
+                android:iconifiedByDefault="false"
+                android:searchIcon="@drawable/searchview_icon_search"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/home_deportivos"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="21dp"
+                android:viewportWidth="341"
+                android:viewportHeight="112"
+                app:cardElevation="15dp"
+                android:backgroundTint="@color/deportivos_card"
+                app:shapeAppearanceOverlay="@style/HomeCardShape">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/deportivos_name"
+                    style="@style/HomeCardsText"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="182dp"
+                    android:layout_height="104dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/bmw"
+                    android:layout_marginStart="90dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85dp"
+                    android:layout_marginStart="294dp"
+                    android:layout_marginEnd="9dp"
+                    android:text="@string/filtro_name"
+                    android:textStyle="bold"
+                    style="@style/FiltroText" />
+
+                <ImageView
+                    android:layout_width="7.55dp"
+                    android:layout_height="7.33dp"
+                    android:src="@drawable/filtro_icon"
+                    android:layout_marginTop="89dp"
+                    android:layout_marginStart="320dp"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/home_suv"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="21dp"
+                android:viewportWidth="341"
+                android:viewportHeight="112"
+                app:cardElevation="15dp"
+                android:backgroundTint="@color/suv_card"
+                app:shapeAppearanceOverlay="@style/HomeCardShape">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/suv_name"
+                    style="@style/HomeCardsText"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="162dp"
+                    android:layout_height="93dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="6dp"
+                    android:src="@drawable/bmw_camioneta"
+                    android:layout_marginStart="91dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85dp"
+                    android:layout_marginStart="294dp"
+                    android:layout_marginEnd="9dp"
+                    android:text="@string/filtro_name"
+                    android:textStyle="bold"
+                    style="@style/FiltroText" />
+
+                <ImageView
+                    android:layout_width="7.55dp"
+                    android:layout_height="7.33dp"
+                    android:src="@drawable/filtro_icon"
+                    android:layout_marginTop="89dp"
+                    android:layout_marginStart="320dp"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/home_electricos"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="21dp"
+                android:viewportWidth="341"
+                android:viewportHeight="112"
+                app:cardElevation="15dp"
+                android:backgroundTint="@color/electricos_card"
+                app:shapeAppearanceOverlay="@style/HomeCardShape">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/electricos_name"
+                    style="@style/HomeCardsText"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="162dp"
+                    android:layout_height="93dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/bmw_electrico"
+                    android:layout_marginStart="89dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85dp"
+                    android:layout_marginStart="294dp"
+                    android:layout_marginEnd="9dp"
+                    android:text="@string/filtro_name"
+                    android:textStyle="bold"
+                    style="@style/FiltroText" />
+
+                <ImageView
+                    android:layout_width="7.55dp"
+                    android:layout_height="7.33dp"
+                    android:src="@drawable/filtro_icon"
+                    android:layout_marginTop="89dp"
+                    android:layout_marginStart="320dp"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/marcas_title"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:text="@string/marcas_name"
+            style="@style/MarcasText"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="53dp"
+            android:layout_marginEnd="26dp"
+            android:gravity="top"
+            app:layout_constraintTop_toBottomOf="@id/home_electricos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="NotSibling" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_card_car_brand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:scrollbars="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginEnd="23dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+            app:layout_constraintVertical_bias="0"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

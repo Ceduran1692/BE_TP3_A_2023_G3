@@ -7,21 +7,73 @@
     android:layout_height="match_parent"
     tools:context=".ui.views.fragments.SettingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Setting"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtSettingGenerales"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="start|center"
+            android:text="@string/txt_setting_generales"
+            android:layout_marginStart="26dp"
+            style="@style/NotificacionesYGenerales"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+            <Switch
+                android:id="@+id/switch_dark_mode"
+                android:layout_width="52dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="292dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/track"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="261dp"
+                android:layout_height="24dp"
+                android:text="@string/switch_modo_oscuro"
+                style="@style/LettersProfileSetting"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+            <Switch
+                android:id="@+id/switch_notifications"
+                android:layout_width="52dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="292dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/track"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="261dp"
+                android:layout_height="24dp"
+                android:text="@string/txt_notification"
+                style="@style/LettersProfileSetting"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

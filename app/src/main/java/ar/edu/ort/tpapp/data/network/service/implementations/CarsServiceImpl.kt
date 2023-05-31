@@ -15,4 +15,12 @@ class CarsServiceImpl @Inject constructor(private val service: CarsServiceInterf
             response.body()?: emptyList()
         }
     }
+
+    suspend fun getAllCarsByBrand(brand:String):List<CarDto>{
+        Log.i("CarServiceImp","getAllCarsByBrand("+brand+"):List<Car>")
+        return withContext(Dispatchers.IO){
+            val response= service.getAllCarsbyBrand(brand)
+            response.body()?: emptyList()
+        }
+    }
 }
