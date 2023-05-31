@@ -52,10 +52,6 @@
         android:name="ar.edu.ort.tpapp.ui.views.fragments.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
-    <fragment
-        android:id="@+id/settingFragment"
-        android:name="ar.edu.ort.tpapp.ui.views.fragments.SettingFragment"
-        android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
+
 </navigation>
 
