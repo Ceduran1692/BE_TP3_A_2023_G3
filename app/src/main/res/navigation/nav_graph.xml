@@ -27,12 +27,31 @@
         android:id="@+id/carListFragment"
         android:name="ar.edu.ort.tpapp.ui.views.fragments.CarListFragment"
         android:label="fragment_car_list"
-        tools:layout="@layout/fragment_car_list" />
+        tools:layout="@layout/fragment_car_list" >
+        <argument
+            android:name="brand"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="" />
+        <argument
+            android:name="favorite"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="ar.edu.ort.tpapp.ui.views.fragments.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="ar.edu.ort.tpapp.ui.views.fragments.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/settingFragment"
         android:name="ar.edu.ort.tpapp.ui.views.fragments.SettingFragment"

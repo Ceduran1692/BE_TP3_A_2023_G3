@@ -72,14 +72,15 @@ class HomeScreenFragment : OnClickBrand, Fragment(R.layout.fragment_home_screen)
 
     override fun onClickBrandRedirect(card: MaterialCardView,brand:String) {
         Log.i("HomeScreenFragment","onClickBrandRedirect() - in")
-        /*
+
         card.setOnClickListener {
             Log.i("HomeScreenFragment","onClickBrandRedirect() - in")
             carViewModel.getAllCarsByBrand(brand)
-            Log.i("HomeScreenFragment","carViewModel.carList.value[0].make= "+carViewModel.carList.value.orEmpty()[0].make)
-            findNavController().navigate(R.id.action_homeScreenFragment_to_carListFragment)
+            //Log.i("HomeScreenFragment","carViewModel.carList.value[0].make= "+carViewModel.carList.value.orEmpty()[0].make)
+            val direction= HomeScreenFragmentDirections.actionHomeScreenFragmentToCarListFragment(brand= brand)
+            findNavController().navigate(direction)
         }
-*/
+
         Log.i("HomeScreenFragment","onClickBrandRedirect() - out")
     }
 

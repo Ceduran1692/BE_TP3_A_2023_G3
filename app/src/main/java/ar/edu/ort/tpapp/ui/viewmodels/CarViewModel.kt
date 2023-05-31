@@ -31,7 +31,6 @@ class CarViewModel @Inject constructor(
         isLoading.postValue(true)
         viewModelScope.launch {
             var result= getAllCarsUseCase()
-            result= setBrandLogoUseCase(result)
 
             if(result.isNotEmpty()) {
                 Log.i("CarViewModel", "brandVerify-> result[0].lgBrand= +"+result[0].lgBrand)
@@ -48,7 +47,6 @@ class CarViewModel @Inject constructor(
         isLoading.postValue(true)
         viewModelScope.launch {
             var result= getAllCarsByBrandUseCase(brand)
-            result= setBrandLogoUseCase(result)
             if(result.isNotEmpty())carList.value= result
         }
         isLoading.postValue(false)

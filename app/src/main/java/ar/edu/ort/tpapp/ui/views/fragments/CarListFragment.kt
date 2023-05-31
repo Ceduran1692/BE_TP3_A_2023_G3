@@ -6,12 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tpapp.R
 import ar.edu.ort.tpapp.databinding.FragmentCarListBinding
-import ar.edu.ort.tpapp.databinding.FragmentHomeScreenBinding
 import ar.edu.ort.tpapp.domain.models.Car
 import ar.edu.ort.tpapp.domain.models.CarBrand
 import ar.edu.ort.tpapp.ui.viewmodels.CarViewModel
@@ -23,8 +23,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class CarListFragment : Fragment(R.layout.fragment_car_list) {
     private var _binding: FragmentCarListBinding?=null
     private val binding get()= _binding!!
-    private val viewModel: CarViewModel by viewModels()
-
+    private val viewModel: CarViewModel by activityViewModels()
+    private val args:CarListFragmentArgs by navArgs()
+    private var adapter:CarRecyclerAdapter= CarRecyclerAdapter(mutableListOf())
     private lateinit var carListTest:MutableList<Car>
 
     override fun onCreateView(
@@ -32,11 +33,14 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
         savedInstanceState: Bundle?
     ): View? {
         Log.i("CarListFragment","onCreateView() - init")
-
         // Inflate the layout for this fragment
         _binding= FragmentCarListBinding.inflate(inflater,container,false)
         val view = binding.root
+        initObservers()
+        initVmCarList()
+        //initTestFun()
         initRecyclerView()
+
 
 
         Log.i("CarListFragment","onCreateView() - out")
@@ -46,17 +50,46 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
 
 
     private fun initRecyclerView(){
+
         val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.carRecycle.layoutManager = linearLayoutManager
 
-        viewModel.getAllCars()
+        //viewModel.getAllCars()
+        //adapter.setData(carListTest)
+        binding.carRecycle.adapter = adapter
+
+    }
+
+    private fun initObservers(){
+        viewModel.isLoading.observe(viewLifecycleOwner,{
+            loadingProgressBar(it)
+        })
 
         viewModel.carList.observe(viewLifecycleOwner) { cars ->
-            val adapter = CarRecyclerAdapter(cars.toMutableList())
-            binding.carRecycle.adapter = adapter
+            adapter.setData(cars.toMutableList())
+        }
+    }
+    private fun initVmCarList(){
+        var brand= args.brand
+        var favorite= args.favorite
+        if(!favorite){
+            if(!brand.isNullOrEmpty()) {
+                viewModel.getAllCarsByBrand(brand)
+            } else{viewModel.getAllCars()}
+        }else{
+            viewModel.getAllFavorites()
         }
     }
 
+    private fun loadingProgressBar(loading:Boolean){
+        if(loading){
+            binding.pbRvCarList.visibility= View.VISIBLE
+            binding.carRecycle.visibility= View.GONE
+        }else{
+            binding.pbRvCarList.visibility= View.GONE
+            binding.carRecycle.visibility= View.VISIBLE
+        }
+    }
     private fun initTestFun(){
         carListTest= mutableListOf()
 
@@ -72,7 +105,8 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
             "toyota",
             "camry",
             "a",
-             1993))
+             1993,
+            lgBrand= R.drawable.lg_toyota))
         }
 
 

@@ -15,6 +15,15 @@
             style="@style/AppSearchView"
             android:iconifiedByDefault="false" />
 
+    <ProgressBar
+        android:id="@+id/pb_rv_car_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:progress="25">
+    </ProgressBar>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/carRecycle"
             android:layout_width="match_parent"

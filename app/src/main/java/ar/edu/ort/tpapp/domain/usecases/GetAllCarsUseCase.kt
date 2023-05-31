@@ -1,10 +1,11 @@
 package ar.edu.ort.tpapp.domain.usecases
 
 import android.util.Log
-import ar.edu.ort.tpapp.data.database.dao.CarDao
+import ar.edu.ort.tpapp.core.Config
 import ar.edu.ort.tpapp.data.database.repositories.CarRepository
 import ar.edu.ort.tpapp.data.network.service.CarService
 import ar.edu.ort.tpapp.domain.models.Car
+import java.util.Collections
 import javax.inject.Inject
 
 class GetAllCarsUseCase @Inject constructor(
@@ -15,7 +16,16 @@ class GetAllCarsUseCase @Inject constructor(
     suspend operator fun invoke():MutableList<Car>{
         try {
             Log.i("GetAllCarsUseCase:List<Car>", "init")
-            var result = carService.getAllCars()
+            carRepository.deleteNonFavoriteCars()
+
+            var result:MutableList<Car>
+
+            result= mutableListOf()
+
+            for(brand in Config.brands){
+                result.addAll(carService.getAllCarsByBrand(brand))
+            }
+
             if(!result.isEmpty()){
                 carRepository.deleteNonFavoriteCars()
 
@@ -24,14 +34,16 @@ class GetAllCarsUseCase @Inject constructor(
 
 
             }else{
-                result= carRepository.getAllCars()
+                result= carRepository.getAllCars().toMutableList()
             }
             Log.i("GetAllCarsUseCase", "out")
-            return result.toMutableList()
+            Collections.shuffle(result)
+            return result
         }catch (e:Exception){
             Log.i("GetAllCarsUseCase","Error: GetAllCarsUseCase: "+e.message)
-            return emptyList<Car>().toMutableList()
+            return mutableListOf()
         }
     }
+
 
 }

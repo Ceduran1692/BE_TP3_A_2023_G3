@@ -8,8 +8,8 @@ import ar.edu.ort.tpapp.R
 import ar.edu.ort.tpapp.domain.models.Car
 import ar.edu.ort.tpapp.ui.views.holders.CarViewHolder
 
-data class CarRecyclerAdapter(
-    var carList:MutableList<Car>
+class CarRecyclerAdapter(
+    private var carList:MutableList<Car>
 ):RecyclerView.Adapter<CarViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
@@ -28,6 +28,7 @@ data class CarRecyclerAdapter(
     }
 
     fun setData(cars: MutableList<Car>) {
+        carList.clear()
         carList = cars
         notifyDataSetChanged()
     }

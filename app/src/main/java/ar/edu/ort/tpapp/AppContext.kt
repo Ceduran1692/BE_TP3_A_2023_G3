@@ -12,6 +12,7 @@ class AppContext:Application() {
 
         Config.apiKey= resources.getString(R.string.api_key)
         Config.baseUrl= resources.getString(R.string.base_url)
+        Config.brands= arrayOf("mercedes-benz","maserati","toyota","porsche","volkswagen","renault","renault","bmw","audi")
 
         Log.i("AppContext","cargando datos:" +
                 " apiKey: "+Config.apiKey+", baseUrl: "+Config.baseUrl)

@@ -29,20 +29,15 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="56dp">
-            <View
+            <Switch
+                android:id="@+id/switch_dark_mode"
                 android:layout_width="52dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="292dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/track"/>
-            <View
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="300dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="44dp"
-                android:foreground="@drawable/handle"/>
+
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="261dp"
@@ -58,20 +53,15 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="56dp">
-            <View
+            <Switch
+                android:id="@+id/switch_notifications"
                 android:layout_width="52dp"
-                android:layout_height="32dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="292dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/track"/>
-            <View
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="300dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="44dp"
-                android:foreground="@drawable/handle"/>
+
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="261dp"
